@@ -1,0 +1,44 @@
+<div id="user-widget">
+  <% if current_user %>
+    Welcome <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+
+
+<div style='width: 800px;'>
+  
+  <h1>Ship Tracker</h1>
+  <p>Look at the purty sheeps!</p>
+
+  <div id="map" style='width: 800px; height: 700px;'></div>
+  
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {"zoom": 5}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 18.45,
+      "lng": -66.10,
+      "picture": {
+        "url": "http://api.ning.com/files/A1hm6FAuuYKcpqO2duBhXCLb5E*aP9*FA57wYIFmlQy3Pt5sgrI6I8jTndXAjqhWYUoxulQje55UBcWGARbmbg__/music_lionelRichie.gif?size=64&crop=1%3A1",
+        "width":  64,
+        "height": 64
+      },
+      "infowindow": "hello!"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+
+
+
+
+</div>
+
+

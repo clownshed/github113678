@@ -1,0 +1,17 @@
+
+<div id="user-widget">
+  <% if current_user %>
+    
+    <%= button_to "Sign out of facebook", signout_path, id: "sign_out" %>
+    <h2> Welll Howdy, <strong><%= current_user.name %></strong> and don't you look mighty purty in them shorts! </h2>
+  <% else %>
+    <%= button_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+<h1>Freebooter</h1>
+
+your Facebook ID is "id"
+your timezone is "timezone"
+about you "about"
+you are from "hometown"
+
